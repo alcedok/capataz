@@ -1,0 +1,21 @@
+README
+
+Dependencies
+- BigData Frameworks
+	Kibana
+	Elasticsearch
+	Spark
+	Zookeeper
+	Hadoop
+	Spark (Stream,SQL,ML)
+	
+-Python lib
+	kafka-python
+	elasticsearch
+	numpy
+	pandas
+	pygeohash
+
+
+# start kafka
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 4 --partitions 4 --topic cars

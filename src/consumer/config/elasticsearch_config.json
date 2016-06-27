@@ -1,0 +1,47 @@
+{
+  "stream_cars" : {
+  	"settings" : {
+        "number_of_shards" : 3,
+        "number_of_replicas" : 3 },
+
+    "mappings" : {
+      "stream_car" : {
+        "_source": { "enabled": false },
+        "properties" : {
+          "drop_location" : {
+            "type" : "geo_point",
+            "lat_lon" : true
+          },
+          "pick_location" : {
+            "type" : "geo_point",
+            "lat_lon" : true
+          },
+          "seat_available" : {
+            "type" : "integer"
+          },
+          "trip_distance" : {
+            "type" : "integer"
+          },
+          "timestamp":    { "type": "date",    "doc_values": true, "format": "HH:mm:ss.SSS"}
+        }
+      }
+    }
+  }
+,
+"stream_users":{
+	"settings" : {
+        "number_of_shards" : 3,
+        "number_of_replicas" : 3 },
+
+	"mappings":{
+		"stream_user":{
+      "_source": { "enabled": false },
+			"properties": {
+				"user_name" : {"type": "string"},
+				"pick_location": {"type": "geo_point","lat_lon": true},
+				"drop_location": {"type": "geo_point","lat_lon": true},
+        "timestamp":    { "type": "date",    "doc_values": true,"format": "HH:mm:ss.SSS" }
+							}
+					}
+			}}
+}

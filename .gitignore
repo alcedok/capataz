@@ -1,0 +1,7 @@
+# ignore these
+.DS_Store
+.DS_Store?
+
+capataz/src/consumer/config/*.yaml
+capataz/src/producer/config/*.yaml
+capataz/src/stream_process/config/*.yaml
