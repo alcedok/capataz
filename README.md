@@ -1,4 +1,4 @@
-capataz - a traffic analytics platform
+capataz - Data Analytics Platform for Connected Transportation
 =======================================
 ## Summary
 * A data analytics platform for vehicles on the cloud
@@ -11,9 +11,12 @@ TODO
 
 ## Dependencies
 TODO
+<<<<<<< HEAD
 
 ## Pipeline
 Ingestion: Kafka serves as the primary messaging system between all tools in the pipeline. 
 Stream:
 Batch:
 Datastore+Search Engine: 
+=======
+>>>>>>> origin/master
