@@ -1,4 +1,4 @@
-capataz - a traffic analytics platform
+capataz - Data Analytics Platform for Connected Transportation
 =======================================
 ## Summary
 * A data analytics platform for vehicles on the cloud
