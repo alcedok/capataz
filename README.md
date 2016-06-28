@@ -11,3 +11,9 @@ TODO
 
 ## Dependencies
 TODO
+
+## Pipeline
+Ingestion: Kafka serves as the primary messaging system between all tools in the pipeline. 
+Stream:
+Batch:
+Datastore+Search Engine: 
