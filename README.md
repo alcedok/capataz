@@ -1,6 +1,6 @@
 ## capataz 
 ## A Data Analytics Platform for Connected Transportation
-=======================================
+
 ### Summary
 __capataz__ allows users to explore, analyze and visualize both near-real-time and historical data, composed of geospatial location, distance traveled, number of passengers and time. 
 
