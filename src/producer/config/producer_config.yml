@@ -1,0 +1,7 @@
+# Configuration parameters for Kafka Producer
+port: ec2-52-205-3-118.compute-1.amazonaws.com:9092
+# topics: [cars,users]
+topics: ['cars','users']
+time_buffer: 1
+data_file_name: 'data/test_data.csv'
+data_column_keys: [trip_distance,passenger_count,pickup_latitude,pickup_longitude,dropoff_latitude,dropoff_longitude]
