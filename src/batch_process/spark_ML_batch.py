@@ -23,6 +23,7 @@ from pyspark.ml.evaluation import RegressionEvaluator
 from datetime import datetime
 from  kafka_message_sender import KafkaMessageSender
 
+
 def quiet_logs(sc):
 	# remove INFO log on terminal
 	logger = sc._jvm.org.apache.log4j
@@ -214,14 +215,15 @@ def spark_process(sqlContext, sc, validate, path_to_file):
 							StructField("dropoff_latitude", DoubleType(), True)])
 
 		features_from_predictions = output.map(lambda row: (float(row.prediction),int(row.features[0]),float(row.features[1]),float(row.features[2]),float(row.features[3]),float(row.features[4]) ) ).collect()
-		dataframe_from_prediction_vector = sqlContext.createDataFrame(features_from_predictions,schema)
+		sqlContext.clearCache()
+		dataframe_from_prediction_vector = sqlContext.createDataFrame(features_from_predictions,schema).cache()
 
 		return dataframe_from_prediction_vector
 
 if __name__ == '__main__':
 
 	# CSV data file from HDFS
-	path_to_file = "hdfs://ec2-52-205-3-118.compute-1.amazonaws.com:9000/data/test/test_data_30.csv"
+	path_to_file = "hdfs://ec2-52-205-3-118.compute-1.amazonaws.com:9000/data/test/test_data_10500.csv"
 	# set up Spark Configs
 	sqlContext, sc = set_up_spark()
 
@@ -237,8 +239,7 @@ if __name__ == '__main__':
 		print("-----(r2) on test data = "  + str(r2_test)  + " -----")
 	else: 
 		# run Spark process
-		model_output = spark_process(sqlContext, sc, validate,path_to_file)
-		
+		model_output = spark_process(sqlContext, sc, validate,path_to_file)		
 		model_output.show(n=5)
 
 		messages = model_output.toJSON(use_unicode=False).collect()

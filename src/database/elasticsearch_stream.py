@@ -22,14 +22,6 @@ def json_loader(json_file):
 		config = json.load(jsn,object_hook=_tostring)
 	return config
 
-
-def cleanup_elasticsearch(index):
-	# set up elastic search and remove any existing indices 
-	if es.indices.exists(index):
-	    print("deleting '%s' index..." % (index))
-	    res = es.indices.delete(index = index)
-	    print(" response: '%s'" % (res))
-
 def signal_handler(signal,frame):
 	print "--"
 	print "--- elasticsearch consumer has been halted ---"
@@ -90,7 +82,7 @@ def consume_messages(topics):
 if __name__ == '__main__':
 
 	# load configuration parameters
-	config_path = 'config/consumer_config.yml'
+	config_path = 'config/stream_consumer_config.yml'
 	config = yaml_loader(config_path)
 
 	# initialize parameters
@@ -98,7 +90,7 @@ if __name__ == '__main__':
 	topics = config['topics']
 
 	# load mapping
-	mapping = json_loader('config/elasticsearch_config.json')
+	mapping = json_loader('config/stream_elasticsearch_config.json')
 	
 	# initialize elasticsearch
 	es = Elasticsearch()

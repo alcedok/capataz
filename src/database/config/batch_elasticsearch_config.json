@@ -6,7 +6,7 @@
 
     "mappings" : {
       "prediction" : {
-        "_source": { "enabled": false },
+        "_source": { "enabled": true },
         "properties" : {
           "drop_location" : {
             "type" : "geo_point",

@@ -6,7 +6,7 @@ Summary:
 - Extract json from Kafka
 - Convert json to Spark DataFrame
 - Filter invalid data
-- Push to Elasticsearch
+- Push to Kafka 
 
 """
 # from __future__ import print_function
@@ -94,13 +94,10 @@ def stream_to_dataframe(row_rdd):
 			
 			# if the dataframe is not empty then send to Kafka
 			if not filtered_dataframe.rdd.isEmpty():
-				print "---------filtered---------"
-				# debug(flag,filtered_dataframe)
-				# kafka_sender.current_topic = 'stream_cars'
-				# filtered_dataframe.foreach(send_message)
+				# print "---------filtered---------"
 				messages = filtered_dataframe.toJSON(use_unicode=False).collect()
-				print messages
-				print kafka_sender.current_topic
+				# print messages
+				# print kafka_sender.current_topic
 				kafka_sender.send_message(messages)
 
 	except:
@@ -115,6 +112,7 @@ if __name__ == '__main__':
 	conf.set("spark.streaming.stopGracefullyOnShutdown", "true")
 	sc = SparkContext(conf=conf)
 	sqlContext = SQLContext(sc)
+
 	# keep INFO logs off
 	quiet_logs(sc)
 	ssc = StreamingContext(sc, 2)
@@ -132,7 +130,6 @@ if __name__ == '__main__':
 										str(x['pickup_latitude']),
 										str(x['dropoff_longitude']),
 										str(x['dropoff_latitude'])))
-	# row_rdd.pprint(num=1)
 
 	# perform filtering and dataframe conversion 
 	row_rdd.foreachRDD(stream_to_dataframe)
@@ -141,9 +138,3 @@ if __name__ == '__main__':
 	ssc.start()
 	ssc.awaitTermination()
 	
-
-# {"vendor_id":"VTS","pickup_datetime":"2013-05-01 00:04:00","dropoff_datetime":"2013-05-01 00:12:00",
-# "passenger_count":1,"trip_distance":1.34,"pickup_longitude":-73.982287,"pickup_latitude":40.772815000000001,
-# "rate_code":1,"store_and_fwd_flag":null,"dropoff_longitude":-73.98621,"dropoff_latitude":40.758741999999998,
-# "payment_type":"CSH","fare_amount":7,"surcharge":0.5,"mta_tax":0.5,"tip_amount":0,"tolls_amount":0,"total_amount":8,
-# "timestamp":"2016\/06\/21 15:50:40.624"}

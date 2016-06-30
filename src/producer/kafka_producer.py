@@ -66,15 +66,18 @@ if __name__ == '__main__':
 			signal.signal(signal.SIGINT , signal_handler)
 
 			# append current time to Pandas DataFrame
-			# current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
-			current_time = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+			current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
+			# current_time = datetime.now().strftime("%H:%M:%S.%f")[:-3]
 			time_dataframe  = pd.DataFrame({'timestamp':[current_time]})
 
+			# select a random topic
+			rand = random.randint(0,len(topics)-1) 
+			print topics[rand]
+		
 			# convert DataFrame to json string 
 			message = (chunk.join(time_dataframe)).to_json(double_precision=15,orient='records')
 
-			rand = random.randint(0,len(topics)-1) 
-			print topics[rand]
+			
 			print message.strip('[]').splitlines()[0]
 			# send messages
 			producer.send(topics[rand], value = message.strip('[]').splitlines()[0])

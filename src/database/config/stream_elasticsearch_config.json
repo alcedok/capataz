@@ -6,7 +6,7 @@
 
     "mappings" : {
       "stream_car" : {
-        "_source": { "enabled": false },
+        "_source": { "enabled": true },
         "properties" : {
           "drop_location" : {
             "type" : "geo_point",
@@ -22,7 +22,7 @@
           "trip_distance" : {
             "type" : "integer"
           },
-          "timestamp":    { "type": "date",    "doc_values": true, "format": "HH:mm:ss.SSS"}
+          "timestamp":    { "type": "date",    "doc_values": true, "format": "yyyy-MM-dd HH:mm:ss.SSS"}
         }
       }
     }
@@ -35,12 +35,12 @@
 
 	"mappings":{
 		"stream_user":{
-      "_source": { "enabled": false },
+      "_source": { "enabled": true },
 			"properties": {
 				"user_name" : {"type": "string"},
 				"pick_location": {"type": "geo_point","lat_lon": true},
 				"drop_location": {"type": "geo_point","lat_lon": true},
-        "timestamp":    { "type": "date",    "doc_values": true,"format": "HH:mm:ss.SSS" }
+        "timestamp":    { "type": "date",    "doc_values": true,"format": "yyyy-MM-dd HH:mm:ss.SSS" }
 							}
 					}
 			}}
