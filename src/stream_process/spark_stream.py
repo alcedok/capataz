@@ -109,12 +109,13 @@ def stream_to_dataframe(row_rdd):
 if __name__ == '__main__':
 
 
-	## initialize Spark
+	## initialize Spark and set configurations
 	conf = SparkConf()
 	conf.setAppName("Stream Direct from Kafka")
 	conf.set("spark.streaming.stopGracefullyOnShutdown", "true")
 	sc = SparkContext(conf=conf)
 	sqlContext = SQLContext(sc)
+	# keep INFO logs off
 	quiet_logs(sc)
 	ssc = StreamingContext(sc, 2)
 

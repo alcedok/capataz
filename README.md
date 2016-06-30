@@ -6,7 +6,7 @@ __capataz__ allows users to explore, analyze and visualize both near-real-time a
 
 The platform was developed in 3 weeks as part of Insight's Data Engineering Fellowship in NYC. The project allowed me to explore several open-source Big Data technologies, their paradigms and limitations.
 
-__features:__
+__Features:__
 * Near-real-time data ingestion and processing
 * Near-real-time queries on users and vehicles
 * Batch processing on historical data

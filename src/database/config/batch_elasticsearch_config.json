@@ -1,0 +1,29 @@
+{
+  "predictions" : {
+  	"settings" : {
+        "number_of_shards" : 3,
+        "number_of_replicas" : 3 },
+
+    "mappings" : {
+      "prediction" : {
+        "_source": { "enabled": false },
+        "properties" : {
+          "drop_location" : {
+            "type" : "geo_point",
+            "lat_lon" : true
+          },
+          "pick_location" : {
+            "type" : "geo_point",
+            "lat_lon" : true
+          },
+          "prediction_mins" : {
+            "type" : "float"
+          },
+          "pick_up_hour" : {
+            "type" : "integer"
+          }
+        }
+      }
+    }
+  }
+}

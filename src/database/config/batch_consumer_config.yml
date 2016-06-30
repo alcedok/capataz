@@ -1,0 +1,3 @@
+# Configuration parameters for Kafka Consumer
+port: ec2-52-205-3-118.compute-1.amazonaws.com:9092
+topics: ['predictions']
