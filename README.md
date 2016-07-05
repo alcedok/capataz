@@ -27,7 +27,7 @@ The data used for both real-time simulation and batch processing comes from NYC 
 
 ### Pipeline
 
-<img src="https://github.com/alcedok/capataz/blob/master/images/pipeline.png" alt="alt text" width="880" height="770">
+<img src="https://github.com/alcedok/capataz/blob/master/images/pipeline_2.png" alt="alt text" width="880" height="770">
 
 __Ingestion__: 
 
