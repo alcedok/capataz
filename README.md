@@ -14,6 +14,8 @@ __Features:__
 * User-interface for data exploration and visualization 
 * Distributed and scalable 
 
+<img src="https://github.com/alcedok/capataz/blob/master/images/kibana_UI.png" alt="alt text" width="1026" height="463">
+
 ### Description
 capataz (Spanish), translates to overseer/controller:
 > _(n)_ a person or thing that directs or regulates something.
