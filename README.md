@@ -10,7 +10,7 @@ __Features:__
 * Near-real-time data ingestion and processing
 * Near-real-time queries on users and vehicles
 * Batch processing on historical data
-* Pick-up prediction capabilities based on historical data
+* Trip-time prediction based on historical data
 * User-interface for data exploration and visualization 
 * Distributed and scalable 
 
@@ -23,7 +23,7 @@ capataz (Spanish), translates to overseer/controller:
 __capataz__ was inspired by the rise of connected transportation and the imminent deployment of self-driving vehicles. It is a proof-of-concept platform for users that need to monitor, explore and vizualize vast amounts of streaming data. Such users may be city officials, urban-planners, emergency and mass-transportation services, and upcoming automated services such as delivery and carpooling. Moreover __capataz__ was designed with the intention of being used by Data Scientist in order to incorporate predictive models for both real-time and batch streams of data. 
 As it stands __capataz__ is able to process and filter a simulated real-time stream of data which includes geospatial location, distance traveled, number of passengers and time. Moreover, it is able to process and filter large batches of data while simultaneously training a predictive model. The processed data can then be queried, visualized and explored through a user-interface. 
 
-As a proof-of-concept a Decision Tree Regressor was chosen in order to predict number of pick-ups for a given location and time. This information would be valuable for ridesharing and carpooling services that need to optimize their fleet logistics.
+As a proof-of-concept a Decision Tree Regressor was chosen in order to predict the time-delta (in mins), given a start and goal location at a given hour of the day. This information would be valuable for ridesharing and carpooling services that need to optimize their fleet logistics.
 
 The data used for both real-time simulation and batch processing comes from NYC Taxi and Limousine Commission data, which encompasses multiple .csv's totaling 170 GBs. 
 
