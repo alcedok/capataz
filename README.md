@@ -13,10 +13,9 @@ __Features:__
 * Pick-up prediction capabilities based on historical data
 * User-interface for data exploration and visualization 
 * Distributed and scalable 
-* 
-<p align="center">
+
 <img src="https://github.com/alcedok/capataz/blob/master/images/kibana_UI.png" alt="alt text" width="1026" height="463">
-</p>
+
 ### Description
 capataz (Spanish), translates to overseer/controller:
 > _(n)_ a person or thing that directs or regulates something.
